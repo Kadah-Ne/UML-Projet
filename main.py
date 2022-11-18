@@ -1,5 +1,5 @@
 #install flask while being in active VENV:  pip install flask
-
+import DBmanager
 from flask import Flask, session, redirect, url_for, escape, request ,render_template
 app = Flask(__name__)
 
@@ -17,5 +17,12 @@ def index():
    else :
       return render_template('login.html')
 
+@app.route('/catalog', methods=['GET','POST'])
+def catalog():
+   data = tuple(DBmanager.characterlist()) # format in ((info))
+   heading = ("ISBN", "name", "overview", "publisher", "publicationDate", "lang")
+   return render_template("playerstable.html", headings=heading, data=data,user = "bungus") #render_template te permet d'executer un HTML(doit etre dans dossier template)
+
 if __name__ == '__main__':
    app.run()
+
