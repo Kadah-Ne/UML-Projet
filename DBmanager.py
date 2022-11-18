@@ -41,17 +41,15 @@ def characterlist():
   `loanPeriod` int(11) NOT NULL,
   `dueDate` date NOT NULL,
   `isOverdue` tinyint(1) NOT NULL,
-  PRIMARY KEY (barcode),
-  PRIMARY KEY (tag),
+  PRIMARY KEY (barcode, tag),
   FOREIGN KEY (ISBN) REFERENCES Book(ISBN),
-  FOREIGN KEY (ISBN) REFERENCES Book(subject)
+  FOREIGN KEY (subject) REFERENCES Book(subject)
 )"""
     Catalogtable= """CREATE TABLE IF NOT EXISTS `Catalog` (
   `LibraryId` int(11) NOT NULL,
   `BookItemBarcode` varchar(255) NOT NULL,
   `BookItemTag` varchar(255) NOT NULL,
-  PRIMARY KEY (BookItembarcode),
-  PRIMARY KEY (LibraryId),
+  PRIMARY KEY (BookItembarcode,LibraryId),
   FOREIGN KEY (BookItembarcode) REFERENCES Bookitem(barcode),
   FOREIGN KEY (LibraryId) REFERENCES Library(LibraryId)
 )"""
@@ -68,19 +66,19 @@ def characterlist():
     cursor.execute(Catalogtable)
     cursor.execute(Librarytable)
 
-    cursor.execute("INSERT INTO Book VALUES (12345,'sacreu bleu','histoire','histoire','histoire','histoire','histoire')")
+    cursor.execute("INSERT INTO Book VALUES (12345,'sacreu bleu','histoire','histoire','histoire','histoire','histoire','Monsieur R')")
     cursor.execute(
-        "INSERT INTO account VALUES (1235,'11/02/2020','histoire','histoire')")
-    cursor.execute("INSERT INTO Author VALUES ('maximus','maximum','1755')")
+        "INSERT INTO account VALUES (1235,'11/02/2020','histoire','histoire','1')")
+    cursor.execute("INSERT INTO Author VALUES ('maximus','maximum','1755','Peter Pan')")
 
     # cursor.execute("INSERT INTO Book VALUES (153548,32,86)")
 
     cursor.execute("SELECT * FROM Book")
     results = cursor.fetchall()
     cursor.execute("SELECT * FROM Author")
-    authorresult = tuple(cursor.fetchall())
+    #authorresult = cursor.fetchall()
     cursor.execute("SELECT * FROM Account")
-    accountresult = cursor.fetchall()
+    #accountresult = cursor.fetchall()
 
 
 
@@ -88,6 +86,6 @@ def characterlist():
     connection.close()
 
 
-    return results,authorresult,accountresult
+    return results #,authorresult,accountresult
 
 #print(characterlist())
