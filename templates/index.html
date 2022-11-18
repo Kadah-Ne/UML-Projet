@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="{{url_for('static',filename='CSS/index.css')}}">
     <title>Bookworms</title>
 </head>
-<body>
-    <form action="/catalog" class="Lib" method="POST">
-        <select name="Library" id="Library" class="input">
-            <option value="">--Selectionez une Bibliothéque--</option>
-            <option value="1">Biblio de grenoble</option>
-            <option value="2">Biblio de St-egreve</option>
-            <option value="3">Biblio de la tronche</option>
-        </select>
-        <input type="submit" name="button" class="Sub" value="Button"/>
-    </form>
-
-</body>
+   <body>
+      {{user}}
+      <table border = 1>
+         {% for header in headings %}
+            <th> {{ header }} </th>
+         {% endfor %}
+         {% for row in data %}
+            <tr></tr>
+            {% for cell in row %}
+               <td> {{ cell }} </td>
+            {% endfor %}
+         {% endfor %} 
+      </table>
+   </body>
 </html>

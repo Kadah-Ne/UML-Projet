@@ -13,7 +13,7 @@ def index():
       if request.form['idTxt'] == "Martin" and request.form['pwdTxt'] == '1':
          session["idTxt"] = request.form['idTxt']
          session["isLib"] = True
-         return render_template("index.html")
+         return catalog()
       else :
          return render_template('login.html')
    else :
@@ -24,8 +24,7 @@ def catalog():
    data = tuple(DBmanager.characterlist()) # format in ((info))
    heading = ("ISBN", "name", "overview", "publisher", "publicationDate", "lang")
    if request.method == "POST":
-      session["Library"] = request.form["Library"]
-      return render_template("playerstable.html", headings=heading, data=data,user = session.get("idTxt"),library = session.get("Library")) #render_template te permet d'executer un HTML(doit etre dans dossier template)
+      return render_template("index.html", headings=heading, data=data,user = session.get("idTxt"),library = session.get("Library")) #render_template te permet d'executer un HTML(doit etre dans dossier template)
 
 if __name__ == '__main__':
    app.secret_key ="2ifnidkohéijfhizdhnazfnaz,faznfç(jicno)"
