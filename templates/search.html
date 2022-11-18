@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="{{url_for('static',filename='CSS/search.css')}}">
 </head>
 <body>
-    <h1>Search</h1>
-    Bonjour <b>{{user}}</b>
+    <h1>Bonjour <b>{{user}}</b></h1>
+    
     <form method="post" class="searchForm">
         <input type="text" name="searchTitle" placeholder="Search by title"/>
         <input type="text" name="searchAuthor" placeholder="Search by author"/>
@@ -24,15 +24,23 @@
         </select>
         <input type="submit" name="button" class="Sub" value="Button"/>
     </form>
-      <table class="searchTable">
-         {% for header in headings %}
-            <th> {{ header }} </th>
-         {% endfor %}
-         {% for row in data %}
+    <table class="searchTable">
+        {% for header in headings %}
+           <th> {{ header }} </th>
+        {% endfor %}
+        {% for row in data %}
             <tr></tr>
             {% for cell in row %}
-               <td> {{ cell }} </td>
+                {%if (loop.index == 2) %}
+                    <td><a href="/book"> {{ cell }} </a></td>
+                {%else%}
+                    <td>{{ cell }}</td>
+                {%endif%}
             {% endfor %}
-         {% endfor %} 
-      </table>
+       {% endfor %} 
+    </table>
+    <form action="/book" method="post">
+        <input type="submit" value="bnt">
+    </form>
+    
 </body>
