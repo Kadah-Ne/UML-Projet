@@ -18,4 +18,4 @@ def characterlist():
 
     return results
 
-print(characterlist())
+#print(characterlist())
