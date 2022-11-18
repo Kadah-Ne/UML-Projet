@@ -66,12 +66,9 @@ def characterlist():
     cursor.execute(Catalogtable)
     cursor.execute(Librarytable)
 
-    cursor.execute("INSERT INTO Book VALUES (12345,'sacreu bleu','histoire','histoire','histoire','histoire','histoire','Monsieur R')")
-    cursor.execute(
-        "INSERT INTO account VALUES (1235,'11/02/2020','histoire','histoire','1')")
-    cursor.execute("INSERT INTO Author VALUES ('maximus','maximum','1755','Peter Pan')")
 
-    # cursor.execute("INSERT INTO Book VALUES (153548,32,86)")
+
+
 
     cursor.execute("SELECT * FROM Book")
     results = cursor.fetchall()
