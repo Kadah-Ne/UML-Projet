@@ -9,7 +9,18 @@
 <body>
     <h1>Search</h1>
     <form action="post">
-        <input type="text" name="searchName" placeholder="Search"/><br>
+        <input type="text" name="searchTitle" placeholder="Search by title"/>
+        <input type="text" name="searchAuthor" placeholder="Search by author"/>
+        <input type="text" name="searchFormat" placeholder="Search by topic"/>
+        <select name="format">
+            <option value="None"></option>
+            <option value="PaperBack">PaperBack</option>
+            <option value="Hardcover">Hardcover</option>
+            <option value="Audiobook">Audiobook</option>
+            <option value="Audio_CD">Audio CD</option>
+            <option value="MP3_CD">MP3 CD</option>
+            <option value="PDF">PDF</option>
+        </select>
         <input type="submit" name="button" class="Sub" value="Button"/>
     </form>
 </body>
