@@ -1,16 +1,18 @@
 <!doctype html>
 <html>
    <body>
+      {{user}}
+      {{library}}
       <table border = 1>
          {% for header in headings %}
             <th> {{ header }} </th>
          {% endfor %}
          {% for row in data %}
-            <tr> {{ row }} </tr>
+            <tr></tr>
             {% for cell in row %}
                <td> {{ cell }} </td>
             {% endfor %}
-         {% endfor %}
+         {% endfor %} 
       </table>
    </body>
 </html>

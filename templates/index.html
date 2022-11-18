@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/index.css')}}">
     <title>Bookworms</title>
 </head>
 <body>
- 
+    <form action="/catalog" class="Lib" method="POST">
+        <select name="Library" id="Library" class="input">
+            <option value="">--Selectionez une Bibliothéque--</option>
+            <option value="1">Biblio de grenoble</option>
+            <option value="2">Biblio de St-egreve</option>
+            <option value="3">Biblio de la tronche</option>
+        </select>
+        <input type="submit" name="button" class="Sub" value="Button"/>
+    </form>
+
 </body>
 </html>
