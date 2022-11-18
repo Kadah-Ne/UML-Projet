@@ -8,12 +8,13 @@
 </head>
 <body>
     <h1>Search</h1>
-    <form action="post">
+    Bonjour <b>{{user}}</b>
+    <form method="post">
         <input type="text" name="searchTitle" placeholder="Search by title"/>
         <input type="text" name="searchAuthor" placeholder="Search by author"/>
-        <input type="text" name="searchFormat" placeholder="Search by topic"/>
+        <input type="text" name="searchTopic" placeholder="Search by topic"/>
         <select name="format">
-            <option value="None"></option>
+            <option value=""></option>
             <option value="PaperBack">PaperBack</option>
             <option value="Hardcover">Hardcover</option>
             <option value="Audiobook">Audiobook</option>
@@ -23,4 +24,16 @@
         </select>
         <input type="submit" name="button" class="Sub" value="Button"/>
     </form>
+    
+      <table border = 1>
+         {% for header in headings %}
+            <th> {{ header }} </th>
+         {% endfor %}
+         {% for row in data %}
+            <tr></tr>
+            {% for cell in row %}
+               <td> {{ cell }} </td>
+            {% endfor %}
+         {% endfor %} 
+      </table>
 </body>
