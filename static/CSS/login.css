@@ -1,0 +1,33 @@
+body
+{
+    display: flex;
+    background-image: url("../Images/Space.jpg");
+    background-size: cover;
+}
+
+#logo
+{
+    position:absolute;
+    right: 0;
+    margin-right:7rem;
+}
+
+.login
+{
+    position: absolute;
+    right: 40rem;
+    top : 25rem;
+}
+
+.Sub
+{
+    margin-left: 2%;
+}
+
+.login input
+{
+    margin-bottom: 0.5rem;
+    height: 2rem;
+    width: 10rem;
+}
+
