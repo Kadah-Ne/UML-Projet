@@ -32,8 +32,10 @@
             <tr></tr>
             {% for cell in row %}
                 {%if (loop.index == 2) %}
-                    <form action="/book" method="post"></form>
-                        <td><input type="url" name ="book" value="{{ cell }}"></td>
+                    <form action="/book" method="post">
+                        <input type="hidden" name ="idbook" value="{{id}}">
+                        <td><input type="submit" name="title" value="{{cell}}" class="subbutton"></td>
+                    </form>
                 {%else%}
                     <td>{{ cell }}</td>
                 {%endif%}

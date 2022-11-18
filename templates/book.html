@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="{{url_for('static',filename='CSS/login.css')}}">
 </head>
 <body>
-    <h1> {{Title}} </h1>
-    
+    <h1> {{title}} </h1>
+    <h1> {{id}} </h1>
+    {%if isLib == True %}
+        <form action="" name="Modif livre">
+            <input type="submit">
+        </form>
+    {%endif%}
 </body>
 </html>
