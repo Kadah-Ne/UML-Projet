@@ -1,11 +1,15 @@
 import sqlite3
 
+import StarterDB
+
+
 def characterlist():
     connection = sqlite3.connect('library.db')
     cursor = connection.cursor() #obligatoire
     Firsttable = """CREATE TABLE IF NOT EXISTS 
-    Book(ISBN INTEGER,
-    name TEXT,subject TEXT,
+    Book(ISBN int(11),
+    name TEXT,
+    subject TEXT,
     overview TEXT,
     publisher TEXT,
     publicationDate TEXT,
@@ -68,8 +72,6 @@ def characterlist():
 
 
 
-
-
     cursor.execute("SELECT * FROM Book")
     results = cursor.fetchall()
     cursor.execute("SELECT * FROM Author")
@@ -80,9 +82,10 @@ def characterlist():
 
 
     cursor.close()
-    connection.close()
 
+    connection.close()
+    StarterDB.fillDB()
 
     return results #,authorresult,accountresult
 
-#print(characterlist())
+print(characterlist())
