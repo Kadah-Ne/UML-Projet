@@ -26,6 +26,10 @@ def catalog():
    if request.method == "POST":
       return render_template("index.html", headings=heading, data=data,user = session.get("idTxt"),library = session.get("Library")) #render_template te permet d'executer un HTML(doit etre dans dossier template)
 
+@app.route("/search",methods = ["GET","POST"])
+def search():
+   return render_template("search.html")
+
 if __name__ == '__main__':
    app.secret_key ="2ifnidkohéijfhizdhnazfnaz,faznfç(jicno)"
    app.run()
