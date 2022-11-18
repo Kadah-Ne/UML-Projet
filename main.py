@@ -37,6 +37,10 @@ def search():
    else :
       return render_template("search.html",user = session.get("idTxt"), data = data, headings = heading)
 
+@app.route("/book",methods = ["GET","POST"])
+def book():
+   return render_template("book.html")
+
 if __name__ == '__main__':
    app.secret_key ="2ifnidkohéijfhizdhnazfnaz,faznfç(jicno)"
    app.run()
