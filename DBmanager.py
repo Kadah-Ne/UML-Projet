@@ -49,7 +49,7 @@ def characterlist():
   `LibraryId` int(11) NOT NULL,
   `BookItemBarcode` varchar(255) NOT NULL,
   `BookItemTag` varchar(255) NOT NULL,
-  PRIMARY KEY (BookItembarcode,LibraryId),
+  PRIMARY KEY (BookItembarcode,BookItemTag,LibraryId),
   FOREIGN KEY (BookItembarcode) REFERENCES Bookitem(barcode),
   FOREIGN KEY (LibraryId) REFERENCES Library(LibraryId)
 )"""
