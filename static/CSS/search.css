@@ -27,3 +27,14 @@ body
     border: 4px solid #000000;
     background-color: red;
 }
+
+.subbutton
+{
+    background-color: rgba(0, 0, 0, 0);
+    border-style: none;
+}
+
+.subbutton:hover
+{
+    text-decoration: underline;
+}

@@ -40,7 +40,8 @@ def search():
 
 @app.route("/book",methods = ["GET","POST"])
 def book():
-   return render_template("book.html")
+   if request.method == "POST":
+      return render_template("book.html", id = request.form["idbook"], title = request.form["title"], isLib = session.get("isLib"))
 
 if __name__ == '__main__':
    app.secret_key ="2ifnidkohéijfhizdhnazfnaz,faznfç(jicno)"
