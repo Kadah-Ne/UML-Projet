@@ -32,7 +32,8 @@
             <tr></tr>
             {% for cell in row %}
                 {%if (loop.index == 2) %}
-                    <td><a href="/book"> {{ cell }} </a></td>
+                    <form action="/book" method="post"></form>
+                        <td><input type="url" name ="book" value="{{ cell }}"></td>
                 {%else%}
                     <td>{{ cell }}</td>
                 {%endif%}
