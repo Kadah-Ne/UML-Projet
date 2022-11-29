@@ -39,7 +39,7 @@ def search():
       bookTopic = request.form["searchTopic"]
       bookFormat = request.form["format"]
       if bookAuthor != "" or bookTitle != "" or bookTopic != "" or bookFormat !="":
-         data = tuple(test.search(bookTitle, bookAuthor, bookTopic, bookFormat, 1 ))
+         data = tuple(test.search(bookTitle, bookAuthor, bookTopic, bookFormat, session.get("libId") ))
          #print(data)
          return render_template("search.html",user = session.get("userName"), data = data, headings = heading, Title = bookTitle, Author = bookAuthor, Topic = bookTopic, Format = bookFormat) #render_template te permet d'executer un HTML(doit etre dans dossier template)
       else :
@@ -50,7 +50,7 @@ def search():
 @app.route("/book",methods = ["GET","POST"])
 def book():
    if request.method == "POST":
-      bookToView = test.search(request.form["title"],library=1)
+      bookToView = test.search(request.form["title"],library=session.get("libId"))
       BookISNB = bookToView[0][0]
       BookTitle = bookToView[0][1]
       BookTag = bookToView[0][2]
