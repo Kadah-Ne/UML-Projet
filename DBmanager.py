@@ -61,6 +61,8 @@ def characterlist():
       FOREIGN KEY (ISBN) REFERENCES Book(ISBN),
       FOREIGN KEY (subject) REFERENCES Book(subject)
     )"""
+
+    BookStateTable = """CREATE TABLE IF NOT EXISTS `BookState`"""
     
     Catalogtable= """CREATE TABLE IF NOT EXISTS `Catalog` (
       `LibraryId` int(11) NOT NULL,

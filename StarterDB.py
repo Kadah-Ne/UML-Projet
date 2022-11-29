@@ -61,6 +61,10 @@ def fillDB():
         )
 
         cursor.execute(
+            "INSERT INTO LogIn VALUES ('2','Lore','123')"
+        )
+
+        cursor.execute(
             "INSERT INTO Patron VALUES ('Martin Gouviaux','18bis chemin de la viotte')"
         )
 
@@ -72,12 +76,6 @@ def fillDB():
             "INSERT INTO LogIn VALUES ('1','Martin','1')"
         )
 
-        cursor.execute(
-            "INSERT INTO LogIn VALUES ('2','Lore','123')"
-        )
-
-
-        
 
         connection.commit()
         print("inserted example books on startup")

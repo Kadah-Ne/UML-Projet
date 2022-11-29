@@ -10,7 +10,8 @@
 <body>
     <div id = "logo">
         <img src="{{url_for('static',filename='Images/Logo.png')}}" alt="">
-    </div>    
+    </div>  
+    <h1 id="Alerte">{{msg}}</h1>  
     <form action="/" method ="post" class="login">
         <input type="text" name="idTxt" placeholder="Identifiant"/><br>
         <input type="password" name="pwdTxt" placeholder="Mot de passe"/><br>

@@ -21,8 +21,12 @@ def index():
             session["isLib"] = True
          else:
             session["isLib"] = False
-         
-         return redirect("/search")
+         if UserSearch[3] == "Active":         
+            return redirect("/search")
+         elif UserSearch[3] == "Frozen":
+            return render_template('login.html', msg = "Your account is currently frozen")
+         else :
+            return render_template('login.html', msg = "Your account is closed")
       else:
          return render_template('login.html')
    else :
@@ -41,7 +45,7 @@ def search():
       if bookAuthor != "" or bookTitle != "" or bookTopic != "" or bookFormat !="":
          data = tuple(test.search(bookTitle, bookAuthor, bookTopic, bookFormat, session.get("libId") ))
          #print(data)
-         return render_template("search.html",user = session.get("userName"), data = data, headings = heading, Title = bookTitle, Author = bookAuthor, Topic = bookTopic, Format = bookFormat) #render_template te permet d'executer un HTML(doit etre dans dossier template)
+         return render_template("search.html",user = session.get("userName"), data = data, headings = heading) #render_template te permet d'executer un HTML(doit etre dans dossier template)
       else :
          return render_template("search.html",user = session.get("userName"), data = data, headings = heading)
    else :
@@ -60,6 +64,12 @@ def book():
       BookLang = bookToView[0][6]
       BookAuthor = bookToView[0][7]
       return render_template("book.html", id = BookISNB, title = BookTitle, isLib = session.get("isLib"), tag = BookTag, recap = BookRecap, editeur = BookPub, dateSortie = BookDOR, langue = BookLang, auteur = BookAuthor)
+
+@app.route("/historique",methods = ["GET","POST"])
+def historique():
+   heading = ("ISBN", "Titre", "Tag", "Sujet", "Editeur", "Date d'edition", "Langue", "Auteur")
+   data = ()
+   return render_template("historique.html",user = session.get("userName"),heading = heading, data = data)
 
 if __name__ == '__main__':
    app.secret_key ="2ifnidkohéijfhizdhnazfnaz,faznfç(jicno)"
