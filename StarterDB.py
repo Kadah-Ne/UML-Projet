@@ -25,11 +25,11 @@ def fillDB():
             "INSERT INTO Author VALUES ('Brent Weeks','something','1977','The Black Prism')")
 
         cursor.execute(
-            "INSERT INTO Bookitem VALUES ('MartinIsTheBest','12345',9780316075558,'Grimdark, High fantasy','The Black Prism','0','EN','600','Hardcover','0','0','0','0')"
+            "INSERT INTO Bookitem VALUES ('MartinIsTheBest','123',9780316075558,'Grimdark, High fantasy','The Black Prism','0','EN','600','Hardcover','0','0','0','0')"
         )
 
         cursor.execute(
-            "INSERT INTO Bookitem VALUES ('MartinIsTheBest','12345',9780062662569,'Grimdark, High fantasy','The Poppy War','0','EN','544','Hardcover','0','0','0','0')"
+            "INSERT INTO Bookitem VALUES ('MartinIsTheBest','1234',9780062662569,'Grimdark, High fantasy','The Poppy War','0','EN','544','Hardcover','0','0','0','0')"
         )
 
         cursor.execute(
