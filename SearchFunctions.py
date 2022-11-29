@@ -39,12 +39,15 @@ def LogIn(Username = "", Passwrd = ""):
     connection = sqlite3.connect('library.db')
     cursor = connection.cursor()
     
-    cursor.execute("""SELECT Id, Passwrd, Account.LibraryId, Account.type FROM LogIn INNER JOIN Account on LogIn.Id = Account.number WHERE LogIn.Username like ?""",(Username,))
+    cursor.execute("""SELECT Id, Passwrd, Account.LibraryId, Account.type, Account.state FROM LogIn INNER JOIN Account on LogIn.Id = Account.number WHERE LogIn.Username like ?""",(Username,))
     result = cursor.fetchall()
     if result[0][1] == Passwrd:
         UserId = result[0][0]
         LibId = result[0][2]
         UserType = result[0][3]
-        return [UserId,LibId,UserType]
+        AccountState = result[0][4]
+        return [UserId,LibId,UserType,AccountState]
     else :
         return -1
+
+def bookLogs()
