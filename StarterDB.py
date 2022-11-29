@@ -43,6 +43,12 @@ def fillDB():
         cursor.execute(
             "INSERT INTO Catalog VALUES ('1','MartinIsTheBest','12345')"
         )
+        cursor.execute(
+            "INSERT INTO Catalog VALUES ('1','MartinIsTheBest','1234')"
+        )
+        cursor.execute(
+            "INSERT INTO Catalog VALUES ('1','MartinIsTheBest','123')"
+        )
 
         cursor.execute(
             "INSERT INTO Account VALUES ('1','01/05/1999','Open','Type ?','1')"

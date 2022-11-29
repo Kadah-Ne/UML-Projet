@@ -4,19 +4,27 @@ def search(title, author, topic, format, library):
     
     if title == "":
         title = "%"
+    else :
+        title = "%"+title+"%"
     if author == "":
         author = "%"
+    else :
+        author = "%"+author+"%"
     if topic == "":
         topic = "%"
+    else :
+        topic = "%"+topic+"%"
     if format == "":
         format = "%"
+    else :
+        fomat = "%"+format+"%"
     
     connection = sqlite3.connect('library.db')
     cursor = connection.cursor()
 
-    #cursor.execute("""SELECT Book.ISBN, name, overview, publisher, publicationDate, Book.lang, authors FROM (BookItem INNER JOIN Book on BookItem.ISBN = Book.ISBN) INNER JOIN Catalog on BookItem.Barcode = Catalog.BookItemBarcode and BookItem.Tag = Catalog.BookItemTag where title like ? and authors like ? and Book.subject like ? and format like ? and Catalog.LibraryId = ? """, (title,author,topic,format,library,))
+    cursor.execute("""SELECT Book.ISBN, name,Book.subject, overview, publisher, publicationDate, Book.lang, authors FROM (BookItem INNER JOIN Book on BookItem.ISBN = Book.ISBN) INNER JOIN Catalog on BookItem.Barcode = Catalog.BookItemBarcode and BookItem.Tag = Catalog.BookItemTag where title like ? and authors like ? and Book.subject like ? and format like ? and Catalog.LibraryId = ? """, (title,author,topic,format,library,))
     #cursor.execute("""Select * from Book""")
-    cursor.execute("""SELECT * from Book WHERE name like ? and authors like ?""",(title,author))
+    #cursor.execute("""SELECT * from Book WHERE name like ? and authors like ?""",(title,author))
     results = tuple(cursor.fetchall())
     print(results)
     cursor.close()
