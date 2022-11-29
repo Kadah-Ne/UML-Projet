@@ -26,7 +26,7 @@ def search(title, author, topic, format, library):
     #cursor.execute("""Select * from Book""")
     #cursor.execute("""SELECT * from Book WHERE name like ? and authors like ?""",(title,author))
     results = tuple(cursor.fetchall())
-    print(results)
+    #print(results)
     cursor.close()
     connection.close()
     return results
