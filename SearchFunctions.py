@@ -50,4 +50,3 @@ def LogIn(Username = "", Passwrd = ""):
     else :
         return -1
 
-def bookLogs()
