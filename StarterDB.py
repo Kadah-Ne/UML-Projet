@@ -37,7 +37,7 @@ def fillDB():
         )
 
         cursor.execute(
-            "INSERT INTO Library VALUES ('1','30 rue joseph rey','12345')"
+            "INSERT INTO Library VALUES ('1','Librairie du petit jean','30 rue joseph rey','12345')"
         )
 
         cursor.execute(
@@ -50,9 +50,33 @@ def fillDB():
             "INSERT INTO Catalog VALUES ('1','MartinIsTheBest','123')"
         )
 
+        
+
         cursor.execute(
-            "INSERT INTO Account VALUES ('1','01/05/1999','Open','Type ?','1')"
+            "INSERT INTO Patron VALUES ('Laure','11 rue casimir brenier')"
         )
+
+        cursor.execute(
+            "INSERT INTO Account VALUES ('2','20/01/2013','Active','Patron','1','Laure')"
+        )
+
+        cursor.execute(
+            "INSERT INTO Patron VALUES ('Martin Gouviaux','18bis chemin de la viotte')"
+        )
+
+        cursor.execute(
+            "INSERT INTO Account VALUES ('1','01/05/1999','Active','Lib','1','Martin Gouviaux')"
+        )
+
+        cursor.execute(
+            "INSERT INTO LogIn VALUES ('1','Martin','1')"
+        )
+
+        cursor.execute(
+            "INSERT INTO LogIn VALUES ('2','Lore','123')"
+        )
+
+
         
 
         connection.commit()

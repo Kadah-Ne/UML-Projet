@@ -7,12 +7,30 @@
     <link rel="stylesheet" href="{{url_for('static',filename='CSS/login.css')}}">
 </head>
 <body>
-    <h1> {{title}} </h1>
-    <h1> {{id}} </h1>
     {%if isLib == True %}
-        <form action="" name="Modif livre">
-            <input type="submit">
-        </form>
+    <div id="Livre">
+        <form action="">
+            <div class="Titre">
+                <h1> <input type="text" name="TITLE" placeholder="{{title}}"> </h1>
+                <h2> <input type="text" name="ISBN" placeholder="{{id}}"> </h2>
+                <input type="text" name="TOPIC" placeholder="{{tag}}">
+                <input type="text" name="OVERVIEW" placeholder="{{recap}}">
+                <input type="text" name="AUTHOR" placeholder="{{auteur}}">
+                <input type="text" name="DOR" placeholder="{{dateSortie}}">
+                <input type="text" name="PUBLISHER" placeholder="{{editeur}}">
+                <input type="text" name="LANG" placeholder="{{langue}}">
+            </div>
+            <input type="submit" value="Modifier">
+        </form>           
+    </div>
+    {%else%}
+    <div id="Livre">
+        <div class="Titre">
+            <h1> {{title}} </h1>
+            <h2> {{id}} </h2>
+        </div>
+    </div>
+
     {%endif%}
 </body>
 </html>

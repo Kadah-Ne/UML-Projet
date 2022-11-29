@@ -1,6 +1,6 @@
 import sqlite3
 
-def search(title, author, topic, format, library):
+def search(title ="", author="", topic="", format="", library = 0):
     
     if title == "":
         title = "%"
@@ -25,8 +25,26 @@ def search(title, author, topic, format, library):
     cursor.execute("""SELECT Book.ISBN, name,Book.subject, overview, publisher, publicationDate, Book.lang, authors FROM (BookItem INNER JOIN Book on BookItem.ISBN = Book.ISBN) INNER JOIN Catalog on BookItem.Barcode = Catalog.BookItemBarcode and BookItem.Tag = Catalog.BookItemTag where title like ? and authors like ? and Book.subject like ? and format like ? and Catalog.LibraryId = ? """, (title,author,topic,format,library,))
     #cursor.execute("""Select * from Book""")
     #cursor.execute("""SELECT * from Book WHERE name like ? and authors like ?""",(title,author))
-    results = tuple(cursor.fetchall())
+    if cursor.arraysize < 1 :
+        results = tuple(cursor.fetchall())
+    else :
+        results = cursor.fetchall()
+    
     #print(results)
     cursor.close()
     connection.close()
     return results
+
+def LogIn(Username = "", Passwrd = ""):
+    connection = sqlite3.connect('library.db')
+    cursor = connection.cursor()
+    
+    cursor.execute("""SELECT Id, Passwrd, Account.LibraryId, Account.type FROM LogIn INNER JOIN Account on LogIn.Id = Account.number WHERE LogIn.Username like ?""",(Username,))
+    result = cursor.fetchall()
+    if result[0][1] == Passwrd:
+        UserId = result[0][0]
+        LibId = result[0][2]
+        UserType = result[0][3]
+        return [UserId,LibId,UserType]
+    else :
+        return -1

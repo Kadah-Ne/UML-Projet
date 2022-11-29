@@ -31,19 +31,16 @@
         {% for row in data %}
             <tr></tr>
             {% for cell in row %}
-                {%if (loop.index == 2) %}
+                {%if (loop.index == 2)%}     
                     <form action="/book" method="post">
-                        <input type="hidden" name ="idbook" value="{{id}}">
+                        <input type="hidden" name ="idbook" value="{{ISBN}}">
                         <td><input type="submit" name="title" value="{{cell}}" class="subbutton"></td>
-                    </form>
+                    </form>               
                 {%else%}
                     <td>{{ cell }}</td>
                 {%endif%}
             {% endfor %}
        {% endfor %} 
     </table>
-    <form action="/book" method="post">
-        <input type="submit" value="bnt">
-    </form>
     
 </body>
