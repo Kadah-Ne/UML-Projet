@@ -1,5 +1,6 @@
 #install flask while being in active VENV:  pip install flask
-import DBmanager,test
+import DBmanager
+import SearchFunctions as test
 from flask import Flask, session, redirect, url_for, escape, request ,render_template, make_response
 app = Flask(__name__)
 
@@ -23,7 +24,7 @@ def index():
 @app.route("/search",methods = ["GET","POST"])
 def search():
    data = tuple(DBmanager.characterlist()) # format in ((info))
-   heading = ("ISBN", "name", "overview", "publisher", "publicationDate", "lang")
+   heading = ("ISBN", "Titre", "Tag", "Sujet", "Editeur", "Date d'edition", "Langue", "Auteur")
    print(session.get("idTxt"))
    if request.method == "POST":
       bookTitle = request.form["searchTitle"]
@@ -32,7 +33,7 @@ def search():
       bookFormat = request.form["format"]
       if bookAuthor != "" or bookTitle != "" or bookTopic != "" or bookFormat !="":
          data = tuple(test.search(bookTitle, bookAuthor, bookTopic, bookFormat, 1 ))
-         print(data)
+         #print(data)
          return render_template("search.html",user = session.get("idTxt"), data = data, headings = heading, Title = bookTitle, Author = bookAuthor, Topic = bookTopic, Format = bookFormat) #render_template te permet d'executer un HTML(doit etre dans dossier template)
       else :
          return render_template("search.html",user = session.get("idTxt"), data = data, headings = heading)

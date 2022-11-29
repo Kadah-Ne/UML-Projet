@@ -7,7 +7,7 @@ def characterlist():
     connection = sqlite3.connect('library.db')
     cursor = connection.cursor() #obligatoire
     Firsttable = """CREATE TABLE IF NOT EXISTS 
-    Book(ISBN int(11),
+    Book(ISBN int(14),
     name TEXT,
     subject TEXT,
     overview TEXT,
@@ -34,7 +34,7 @@ def characterlist():
     Bookitemtable= """CREATE TABLE IF NOT EXISTS `Bookitem`  (
   `barcode` varchar(255) NOT NULL,
   `tag` float NOT NULL,
-  `ISBN` varchar(255) NOT NULL,
+  `ISBN` int(14) NOT NULL,
   `subject` varchar(255) NOT NULL,
   `title` text NOT NULL,
   `isReferenceOnly` tinyint(1) NOT NULL,
@@ -70,7 +70,13 @@ def characterlist():
     cursor.execute(Catalogtable)
     cursor.execute(Librarytable)
 
+    cursor.close()
 
+    connection.close()
+    StarterDB.fillDB()
+
+    connection = sqlite3.connect('library.db')
+    cursor = connection.cursor() #obligatoire
 
     cursor.execute("SELECT * FROM Book")
     results = cursor.fetchall()
@@ -81,10 +87,7 @@ def characterlist():
 
 
 
-    cursor.close()
-
-    connection.close()
-    StarterDB.fillDB()
+    
 
     return results #,authorresult,accountresult
 
