@@ -29,7 +29,7 @@ def fillDB():
         )
 
         cursor.execute(
-            "INSERT INTO Bookitem VALUES ('MartinIsTheBest','1234',9780062662569,'Grimdark, High fantasy','The Poppy War','0','EN','544','Hardcover','0','0','0','0')"
+            "INSERT INTO Bookitem VALUES ('MartinIsTheBest','1234',9780062662569,'Grimdark, High fantasy','The Poppy War','0','EN','544','Hardcover','22/11/2022','30','22/12/2022','0')"
         )
 
         cursor.execute(
@@ -81,7 +81,7 @@ def fillDB():
         )
 
         cursor.execute(
-            "INSERT INTO IsReserved VALUES ('9780062662569','1','2')"
+            "INSERT INTO IsReserved VALUES ('9780062662569','2','1')"
         )
 
         cursor.execute(

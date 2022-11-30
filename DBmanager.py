@@ -6,8 +6,8 @@ import StarterDB
 def characterlist():
     connection = sqlite3.connect('library.db')
     cursor = connection.cursor() #obligatoire
-    Firsttable = """CREATE TABLE IF NOT EXISTS 
-      Book(ISBN int(14),
+    Firsttable = """CREATE TABLE IF NOT EXISTS Book(
+      ISBN int(14),
       name TEXT,
       subject TEXT,
       overview TEXT,

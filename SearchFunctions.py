@@ -50,3 +50,16 @@ def LogIn(Username = "", Passwrd = ""):
     else :
         return -1
 
+def searchHistorique(UserId : int):
+    connection = sqlite3.connect('library.db')
+    cursor = connection.cursor()
+    cursor.execute(f"""SELECT Book.ISBN, name, authors, Item.borrowed,Item.dueDate,isOverdue FROM Book INNER JOIN Bookitem as Item on Item.ISBN = Book.ISBN INNER JOIN IsBorrowed on IsBorrowed.BookId = Item.ISBN INNER JOIN Account on Account.number = IsBorrowed.PatronId WHERE Account.number like {UserId}""")
+    resultB = cursor.fetchall()
+    cursor.execute(f"""SELECT Book.ISBN, name, authors, Item.borrowed,Item.dueDate,isOverdue FROM Book INNER JOIN Bookitem as Item on Item.ISBN = Book.ISBN INNER JOIN IsReserved on IsReserved.BookId = Item.ISBN INNER JOIN Account on Account.number = IsReserved.PatronId WHERE Account.number like {UserId}""")
+    resultR = cursor.fetchall()
+    result = []
+    for i in resultB:
+        result.append(i)
+    for i in resultR:
+        result.append(i)
+    return result
