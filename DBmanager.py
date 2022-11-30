@@ -62,8 +62,23 @@ def characterlist():
       FOREIGN KEY (subject) REFERENCES Book(subject)
     )"""
 
-    BookStateTable = """CREATE TABLE IF NOT EXISTS `BookState` (
-      """
+    IsBorrowedTable = """CREATE TABLE IF NOT EXISTS `IsBorrowed` (
+      `BookId` int(11) NOT NULL,
+      `PatronId` int(11),
+      `IsBorrowed` tinyint NOT NULL,
+      PRIMARY KEY (BookId),
+      FOREIGN KEY (BookId) REFERENCES BookItem(ISBN),
+      FOREIGN KEY (PatronId) REFERENCES Account(number)
+      )"""
+    
+    IsReservedTable = """CREATE TABLE IF NOT EXISTS `IsReserved` (
+      `BookId` int(11) NOT NULL,
+      `PatronId` int(11),
+      `IsReserved` tinyint NOT NULL,
+      PRIMARY KEY (BookId),
+      FOREIGN KEY (BookId) REFERENCES BookItem(ISBN),
+      FOREIGN KEY (PatronId) REFERENCES Account(number)
+      )"""
     
     Catalogtable= """CREATE TABLE IF NOT EXISTS `Catalog` (
       `LibraryId` int(11) NOT NULL,
@@ -97,6 +112,8 @@ def characterlist():
     cursor.execute(Librarytable)
     cursor.execute(UserTable)
     cursor.execute(LogInTable)
+    cursor.execute(IsBorrowedTable)
+    cursor.execute(IsReservedTable)
     cursor.close()
 
     connection.close()

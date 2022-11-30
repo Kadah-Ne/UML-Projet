@@ -75,7 +75,23 @@ def fillDB():
         cursor.execute(
             "INSERT INTO LogIn VALUES ('1','Martin','1')"
         )
+        
+        cursor.execute(
+            "INSERT INTO IsBorrowed VALUES ('9780062662569','1','1')"
+        )
 
+        cursor.execute(
+            "INSERT INTO IsReserved VALUES ('9780062662569','1','2')"
+        )
+
+        cursor.execute(
+            "INSERT INTO IsReserved VALUES ('9780316075558',NULL,'0')"
+        )
+
+        cursor.execute(
+            "INSERT INTO IsReserved VALUES ('9780316362535',NULL,'0')"
+        )
+        
 
         connection.commit()
         print("inserted example books on startup")
