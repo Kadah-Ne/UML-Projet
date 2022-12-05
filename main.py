@@ -68,9 +68,21 @@ def book():
 @app.route("/historique",methods = ["GET","POST"])
 def historique():
    heading = ("ISBN", "Titre", "Auteur", "Date D'emprunt", "Date de retour", "Est en retard")
-   data = (test.searchHistorique(session.get("idUser")))
+   datas = (test.searchHistorique(session.get("idUser")))
+   datasB=[]
+   datasR=[]
+   borrowed=0
+   for data in datas:
+      if data == "endBorrowed":
+         borrowed=1
+         continue
+      if borrowed == 1:
+         datasR.append(data)
+      else:
+         datasB.append(data)
+   print("data R = ",datasR)
    print(test.searchHistorique(session.get("idUser")))
-   return render_template("historique.html",user = session.get("userName"),headings = heading,data=data)
+   return render_template("historique.html",user = session.get("userName"),headings = heading,datasB=datasB,datasR=datasR)
 
 if __name__ == '__main__':
    app.secret_key ="2ifnidkohéijfhizdhnazfnaz,faznfç(jicno)"

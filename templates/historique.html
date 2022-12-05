@@ -12,7 +12,24 @@
             {% for header in headings %}
                <th> {{ header }} </th>
             {% endfor %}
-            {% for row in data %}
+            {% for row in datasB %}
+                <tr></tr>
+                {% for cell in row %}
+                    {%if (loop.index == 2)%}     
+                        <form action="/book" method="post">
+                            <td><input type="submit" name="title" value="{{cell}}" class="subbutton"></td>
+                        </form>               
+                    {%else%}
+                        <td>{{ cell }}</td>
+                    {%endif%}
+                {% endfor %}
+           {% endfor %} 
+        </table>
+        <table class="searchTable">
+            {% for header in headings %}
+               <th> {{ header }} </th>
+            {% endfor %}
+            {% for row in datasR %}
                 <tr></tr>
                 {% for cell in row %}
                     {%if (loop.index == 2)%}     

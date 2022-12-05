@@ -60,6 +60,7 @@ def searchHistorique(UserId : int):
     result = []
     for i in resultB:
         result.append(i)
+    result.append("endBorrowed")
     for i in resultR:
         result.append(i)
     return result
