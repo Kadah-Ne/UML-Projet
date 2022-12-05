@@ -1,0 +1,53 @@
+body
+{
+    padding-top: 15em;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-image: url("../Images/Space.jpg");
+    background-size: cover;
+    color: white;
+}
+
+#Livre
+{
+    text-align: center;
+    
+    background-color: grey;
+    
+}
+
+.input
+{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    text-align: center;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    border-style: none;
+}
+
+.input:focus
+{
+    outline: none;
+}
+
+h1
+{
+    font-size: larger;
+}
+
+h2
+{
+    font-size: large;
+}
+
+h1 input
+{
+    font-size: larger;
+}
+
+h2 input
+{
+    font-size: large;
+}
