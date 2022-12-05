@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static',filename='CSS/login.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/book.css')}}">
 </head>
 <body>
     {%if isLib == True %}
     <div id="Livre">
         <form action="">
             <div class="Titre">
-                <h1> <input type="text" name="TITLE" placeholder="{{title}}"> </h1>
-                <h2> <input type="text" name="ISBN" placeholder="{{id}}"> </h2>
-                <input type="text" name="TOPIC" placeholder="{{tag}}">
-                <input type="text" name="OVERVIEW" placeholder="{{recap}}">
-                <input type="text" name="AUTHOR" placeholder="{{auteur}}">
-                <input type="text" name="DOR" placeholder="{{dateSortie}}">
-                <input type="text" name="PUBLISHER" placeholder="{{editeur}}">
-                <input type="text" name="LANG" placeholder="{{langue}}">
+                <h1> <input type="text" name="TITLE" value="{{title}}" class="input"> </h1>
+                <h2> <input type="text" name="ISBN" value="{{id}}" class="input"> </h2>
+                <input type="text" name="TOPIC" value="{{tag}}" class="input"><br>
+                <input type="text" name="OVERVIEW" value="{{recap}}" class="input"><br>
+                <input type="text" name="AUTHOR" value="{{auteur}}" class="input"><br>
+                <input type="text" name="DOR" value="{{dateSortie}}" class="input"><br>
+                <input type="text" name="PUBLISHER" value="{{editeur}}" class="input"><br>
+                <input type="text" name="LANG" value="{{langue}}" class="input"><br>
             </div>
+            <br>
             <input type="submit" value="Modifier">
         </form>           
     </div>
