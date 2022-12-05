@@ -57,7 +57,7 @@ def fillDB():
         )
 
         cursor.execute(
-            "INSERT INTO Account VALUES ('2','20/01/2013','Active','Patron','1','Laure')"
+            "INSERT INTO Account VALUES ('2','20/01/2013','Closed','Patron','1','Laure')"
         )
 
         cursor.execute(
